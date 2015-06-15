@@ -129,3 +129,29 @@ void ofxKsmrParticleField::setAllApproach(float pct)
 		pts[i].setApproach(pct);
 	}
 }
+
+void ofxKsmrParticleField::resetVertices(const vector<ofVec3f> &pt, const vector<ofFloatColor> &cols)
+{
+	vertices.clear();
+	pts.clear();
+	color.clear();
+	
+	for (int i = 0;i < pt.size();i++)
+	{
+		vertices.push_back(ofVec3f(pt[i]));
+		color.push_back(ofFloatColor(cols[i]));
+		pts.push_back(ofxKsmrParticleBasic(vertices.back()));
+	}
+	
+	vbo.clear();
+	vbo.setVertexData(&vertices[0], vertices.size(), GL_DYNAMIC_DRAW);
+	vbo.setColorData(&color[0], color.size(), GL_DYNAMIC_DRAW);
+}
+
+void ofxKsmrParticleField::addAtractor(ofVec3f pos, float radius, float amount)
+{
+	atractors.push_back(atractor());
+	atractors.back().pos = pos;
+	atractors.back().radius = radius;
+	atractors.back().amount = amount;
+}

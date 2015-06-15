@@ -30,6 +30,8 @@ public:
 	void update();
 	void draw();
 	
+	void addAtractor(ofVec3f pos, float radius, float amount = 1.0);
+	
 	void setPhysicsRandom();
 	void setPhysics(float mas, float fric);
 	
@@ -42,6 +44,8 @@ public:
 	vector<atractor> atractors;
 	vector<ofFloatColor> color;
 	ofxKsmrParticleBasic & getPt(int num){if (0 <= num && num < pts.size())return pts[num];}
+	
+	void resetVertices(const vector<ofVec3f> & pt, const vector<ofFloatColor> & cols);
 	
 protected:
 	
