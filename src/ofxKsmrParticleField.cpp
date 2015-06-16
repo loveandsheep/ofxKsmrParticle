@@ -155,3 +155,12 @@ void ofxKsmrParticleField::addAtractor(ofVec3f pos, float radius, float amount)
 	atractors.back().radius = radius;
 	atractors.back().amount = amount;
 }
+
+void ofxKsmrParticleField::setAlpha(float alpha)
+{
+	for (int i = 0;i < color.size();i++)
+	{
+		color[i].a = alpha;
+	}
+	vbo.updateColorData(&color[0], color.size());
+}

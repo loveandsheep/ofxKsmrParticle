@@ -36,6 +36,7 @@ public:
 	void setPhysics(float mas, float fric);
 	
 	void setAllApproach(float pct);
+	void setAlpha(float alpha);
 	void setVertex(int num, ofVec3f v);
 	const vector<ofVec3f> & getVertices(){return vertices;}
 	const vector<ofFloatColor> & getColors(){return color;}
@@ -51,8 +52,8 @@ protected:
 	
 	void resetParticles(int numP);
 	ofVbo vbo;
-	vector<ofVec3f> vertices;
 	
+	vector<ofVec3f> vertices;
 	vector<ofxKsmrParticleBasic> pts;
 	
 };
